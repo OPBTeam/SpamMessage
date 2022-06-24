@@ -9,6 +9,7 @@ import (
 	"github.com/df-mc/atomic"
 	"github.com/mgutz/ansi"
 	"github.com/opbteam/spammessage/data"
+	"github.com/opbteam/spammessage/util"
 	"github.com/sandertv/gophertunnel/minecraft"
 	"github.com/sandertv/gophertunnel/minecraft/protocol/login"
 	"github.com/sandertv/gophertunnel/minecraft/protocol/packet"
@@ -52,8 +53,8 @@ func (m *MessageData) Run() {
 				m.Log.Println("XBL: Error reading packet", err)
 				return
 			}
-			if text, ok := pk.(*packet.Text); ok {
-				fmt.Println(text.Message + ansi.Reset)
+			if text, ok := pk.(*packet.Text); ok && !text.NeedsTranslation {
+				fmt.Println(util.MinecraftToAscii(text.Message) + ansi.Reset)
 			}
 			conn.WritePacket(&packet.Text{TextType: packet.TextTypeChat, Message: m.Message})
 		}

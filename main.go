@@ -10,11 +10,13 @@ import (
 	"github.com/fatih/color"
 	"github.com/opbteam/spammessage/data"
 	"github.com/opbteam/spammessage/spammer"
+	"github.com/opbteam/spammessage/util"
 )
 
 func main() {
 	fmt.Printf(color.HiBlueString("\n\n░█████╗░██████╗░███████╗███╗░░██╗  ░██████╗██████╗░░█████╗░███╗░░░███╗\n██╔══██╗██╔══██╗██╔════╝████╗░██║  ██╔════╝██╔══██╗██╔══██╗████╗░████║\n██║░░██║██████╔╝█████╗░░██╔██╗██║  ╚█████╗░██████╔╝███████║██╔████╔██║\n██║░░██║██╔═══╝░██╔══╝░░██║╚████║  ░╚═══██╗██╔═══╝░██╔══██║██║╚██╔╝██║\n╚█████╔╝██║░░░░░███████╗██║░╚███║  ██████╔╝██║░░░░░██║░░██║██║░╚═╝░██║\n░╚════╝░╚═╝░░░░░╚══════╝╚═╝░░╚══╝  ╚═════╝░╚═╝░░░░░╚═╝░░╚═╝╚═╝░░░░░╚═╝\n 		%v %v"), color.HiWhiteString("Author:"), color.HiRedString("Phuongaz\n\n"))
 	log := log.Default()
+	util.InitColor()
 	if err := data.InitializeToken(log); err != nil {
 		log.Fatal(err)
 	}
