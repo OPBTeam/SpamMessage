@@ -1,6 +1,9 @@
 # SpamMessage
 Auto join bot and spam message to bedrock server!
 
+<img align="center" widht="auto" height="260" src="./image.png?raw=true" alt="Logo">
+
+
 Install and run
 
 ```
@@ -13,5 +16,3 @@ Command
 ```
 start <host:port> <message>
 ```
-
-<img align="left" widht="auto" height="260" src="./image.png?raw=true" alt="Logo">
